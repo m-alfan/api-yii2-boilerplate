@@ -49,8 +49,8 @@ $config = [
         ],
         'response' => [
             /* Enable JSON Output: */
-            'format'        => \yii\web\Response::FORMAT_JSON,
-            'charset'       => 'UTF-8',
+            'format' => \yii\web\Response::FORMAT_JSON,
+            'charset' => 'UTF-8',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -80,10 +80,10 @@ $config = [
         ],
         'db' => $db,
         'urlManager' => [
-            'enablePrettyUrl'     => true,
+            'enablePrettyUrl' => true,
             'enableStrictParsing' => true,
-            'showScriptName'      => false,
-            'rules'               => [
+            'showScriptName' => false,
+            'rules' => [
                 '' => 'site/index',
                 'docs' => 'site/docs',
                 [
@@ -92,9 +92,10 @@ $config = [
                     'suffix' => '.json'
                 ],
                 [
-                    'class'         => 'yii\rest\UrlRule',
-                    'pluralize'     => false,
-                    'controller'    => ['v1'],
+                    'class' => 'yii\rest\UrlRule',
+                    'pluralize' => false,
+                    'prefix' => 'api',
+                    'controller' => ['v1'],
                     'extraPatterns' => $rules,
                 ],
             ],

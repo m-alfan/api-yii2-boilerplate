@@ -40,7 +40,7 @@ class SiteController extends Controller
 
     public function actionResource()
     {
-        $swagger = \Swagger\scan(['../config', '../models']);
+        $swagger = \Swagger\scan(['../config', '../routes', '../models', '../modules']);
         return $swagger;
     }
 }

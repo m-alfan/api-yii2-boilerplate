@@ -4,7 +4,7 @@
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
 
-define("API_HOST", (YII_ENV === "dev") ? "localhost:8888" : "domain.com");
+define("API_HOST", (YII_ENV === "dev") ? "localhost:8888/api-yii2-boilerplate/web" : "domain.com");
 
 require(__DIR__ . '/../vendor/autoload.php');
 require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');

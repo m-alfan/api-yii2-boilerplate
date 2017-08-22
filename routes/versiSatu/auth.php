@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'test' => 'tests'
+    'GET me' => 'auth/me'
 ];

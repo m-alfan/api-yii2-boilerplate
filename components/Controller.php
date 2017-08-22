@@ -18,6 +18,10 @@ class Controller extends \yii\rest\Controller
     public function behaviors()
     {
         $behaviors = parent::behaviors();
+//        $behaviors['authenticator'] = [
+//            'class' => 'app\components\Auth',
+//        ];
+
         return $behaviors;
     }
 }
