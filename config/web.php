@@ -49,15 +49,32 @@ $config = [
         ],
         'response' => [
             /* Enable JSON Output: */
+            'class' => 'yii\web\Response',
             'format' => \yii\web\Response::FORMAT_JSON,
             'charset' => 'UTF-8',
+            'on beforeSend' => function ($event) {
+                $response = $event->sender;
+                if ($response->data !== null && is_array($response->data)) {
+                    /* delete code param */
+                    if (array_key_exists('code', $response->data)) {
+                        unset($response->data['code']);
+                    }
+
+                    /* change status to statusCode */
+                    if (array_key_exists('status', $response->data)) {
+                        $response->data['statusCode'] = $response->data['status'];
+                        unset($response->data['status']);
+                    }
+                }
+            },
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
             'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
+            'enableSession' => false,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -110,14 +127,14 @@ if (YII_ENV_DEV) {
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         /* uncomment the following to add your IP if you are not connecting from localhost. */
-        /*'allowedIPs' => ['127.0.0.1', '::1'], */
+        /* 'allowedIPs' => ['127.0.0.1', '::1'], */
     ];
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         /* uncomment the following to add your IP if you are not connecting from localhost. */
-        /*'allowedIPs' => ['127.0.0.1', '::1'], */
+        /* 'allowedIPs' => ['127.0.0.1', '::1'], */
     ];
 }
 

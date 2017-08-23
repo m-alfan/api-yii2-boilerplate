@@ -42,4 +42,25 @@ return [
      * )
      */
     'POST login' => 'guest/login',
+
+    /**
+     * @SWG\Post(
+     *     path="/v1/register",
+     *     summary="Register",
+     *     tags={"Guest"},
+     *     description="Register user",
+     *     @SWG\Parameter(
+     *         name="body",
+     *         in="body",
+     *         description="Data Register",
+     *         required=true,
+     *         @SWG\Schema(ref="#/definitions/NewUser"),
+     *     ),
+     *     @SWG\Response(
+     *         response=200,
+     *         description="pet response",
+     *     )
+     * )
+     */
+    'POST register' => 'guest/register',
 ];

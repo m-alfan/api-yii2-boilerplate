@@ -9,12 +9,8 @@ class AuthController extends Controller
 {
     public function actionMe()
     {
-        $params = Yii::$app->params;
         return [
-            'name' => $params['name'],
-            'description' => $params['description'],
-            'version' => $params['version'],
-            'baseUrl' => $this->baseUrl()
+            'test' => 'Test Berhasil'
         ];
     }
 }

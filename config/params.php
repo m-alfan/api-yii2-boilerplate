@@ -2,6 +2,7 @@
 
 return [
     'adminEmail' => 'muhamad.alfan01@gmail.com',
+    'passwordResetTokenExpire' => 300,
     'supportEmail' => 'noreply.resetaccess@gmail.com',
     'name' => 'Rest API',
     'description' => 'Rest API with Yii2',
