@@ -9,8 +9,7 @@ class AuthController extends Controller
 {
     public function actionMe()
     {
-        return [
-            'test' => 'Test Berhasil'
-        ];
+        $user = Yii::$app->user->identity;
+        return $user;
     }
 }

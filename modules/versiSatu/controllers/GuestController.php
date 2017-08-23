@@ -54,18 +54,27 @@ class GuestController extends Controller
         ];
     }
 
+    /**
+     * Login
+     *
+     * @return mixed
+     */
     public function actionLogin()
     {
         $dataRequest['LoginForm'] = Yii::$app->request->post();
         $model = new LoginForm();
         if ($model->load($dataRequest) && ($result = $model->login())) {
-            //$this->debugCode($result);
             return $this->apiItem($result);
         }
 
         return $this->apiValidate($model->errors);
     }
 
+    /**
+     * Register
+     *
+     * @return mixed
+     */
     public function actionRegister()
     {
         $dataRequest['RegisterForm'] = Yii::$app->request->getBodyParams();

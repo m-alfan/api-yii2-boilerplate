@@ -78,9 +78,9 @@ trait UserJwt
      * @param  string $id if of user to search
      * @return mixed       User model
      */
-    public static function findByJTI($id)
+    public static function findByJTI($token)
     {
-        return static::findOne($id);
+        return static::findOne(['auth_key' => $token, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**
@@ -100,7 +100,7 @@ trait UserJwt
      */
     public function getJTI()
     {
-        return $this->getId();
+        return $this->getAuthKey();
     }
 
     /**
