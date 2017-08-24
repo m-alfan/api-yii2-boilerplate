@@ -27,7 +27,16 @@ trait UserJwt
      */
     protected static function getSecretKey()
     {
-        return '';
+        return isset(Yii::$app->params['secretKey']) ? Yii::$app->params['secretKey'] : 'tokenDefault';
+    }
+
+    /**
+     * Getter for expIn token that's used for generation of JWT
+     * @return integer time to add expIn token used to generate JWT
+     */
+    protected static function getExpireIn()
+    {
+        return isset(Yii::$app->params['expiresIn']) ? strtotime(Yii::$app->params['expiresIn']) : 0;
     }
 
     /**
@@ -126,7 +135,8 @@ trait UserJwt
             'iss' => $hostInfo,
             'aud' => $hostInfo,
             'iat' => $currentTime,
-            'nbf' => $currentTime
+            'nbf' => $currentTime,
+            'exp' => static::getExpireIn()
         ], static::getHeaderToken());
 
         // Set up id

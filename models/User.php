@@ -23,21 +23,12 @@ use yii\web\IdentityInterface;
  */
 class User extends ActiveRecord implements IdentityInterface
 {
-    /**
-     * @SWG\Property();
-     * @var string
-     */
     public $token;
 
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
 
     use \app\components\UserJwt;
-
-    protected static function getSecretKey()
-    {
-        return 'testJokoAja';
-    }
 
     /**
      * @inheritdoc

@@ -7,7 +7,11 @@ use yii\base\Model;
 use app\models\User;
 
 /**
- * Login form
+ * @SWG\Definition(
+ *   definition="LoginForm",
+ *   type="formData",
+ *   required={"username", "password"}
+ * )
  */
 class LoginForm extends Model
 {
