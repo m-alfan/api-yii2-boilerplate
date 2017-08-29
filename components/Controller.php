@@ -31,13 +31,13 @@ class Controller extends \yii\rest\Controller
     /**
      * Api Validate error response
      */
-    public function apiValidate($errors, $messege = false)
+    public function apiValidate($errors, $message = false)
     {
         Yii::$app->response->statusCode = 422;
         return [
             'statusCode' => 422,
             'name' => 'ValidateErrorException',
-            'message' => $messege ? $messege : 'Error validation',
+            'message' => $message ? $message : 'Error validation',
             'errors' => $errors
         ];
     }
@@ -45,12 +45,12 @@ class Controller extends \yii\rest\Controller
     /**
      * Api Created response
      */
-    public function apiCreated($data, $messege = false)
+    public function apiCreated($data, $message = false)
     {
         Yii::$app->response->statusCode = 201;
         return [
             'statusCode' => 201,
-            'message' => $messege ? $messege : 'Created successfully',
+            'message' => $message ? $message : 'Created successfully',
             'data' => $data
         ];
     }
@@ -58,12 +58,12 @@ class Controller extends \yii\rest\Controller
     /**
      * Api Updated response
      */
-    public function apiUpdated($data, $messege = false)
+    public function apiUpdated($data, $message = false)
     {
         Yii::$app->response->statusCode = 202;
         return [
             'statusCode' => 202,
-            'message' => $messege ? $messege : 'Updated successfully',
+            'message' => $message ? $message : 'Updated successfully',
             'data' => $data
         ];
     }
@@ -71,12 +71,12 @@ class Controller extends \yii\rest\Controller
     /**
      * Api Deleted response
      */
-    public function apiDeleted($data, $messege = false)
+    public function apiDeleted($data, $message = false)
     {
         Yii::$app->response->statusCode = 202;
         return [
             'statusCode' => 202,
-            'message' => $messege ? $messege : 'Deleted successfully',
+            'message' => $message ? $message : 'Deleted successfully',
             'data' => $data
         ];
     }
@@ -84,12 +84,12 @@ class Controller extends \yii\rest\Controller
     /**
      * Api Item response
      */
-    public function apiItem($data, $messege = false)
+    public function apiItem($data, $message = false)
     {
         Yii::$app->response->statusCode = 200;
         return [
             'statusCode' => 200,
-            'message' => $messege ? $messege : 'Data retrieval successfully',
+            'message' => $message ? $message : 'Data retrieval successfully',
             'data' => $data
         ];
     }
@@ -97,12 +97,12 @@ class Controller extends \yii\rest\Controller
     /**
      * Api Collection response
      */
-    public function apiCollection($data, $total = 0, $messege = false)
+    public function apiCollection($data, $total = 0, $message = false)
     {
         Yii::$app->response->statusCode = 200;
         return [
             'statusCode' => 200,
-            'message' => $messege ? $messege : 'Data retrieval successfully',
+            'message' => $message ? $message : 'Data retrieval successfully',
             'data' => $data,
             'total' => 0
         ];
@@ -111,12 +111,12 @@ class Controller extends \yii\rest\Controller
     /**
      * Api Success response
      */
-    public function apiSuccess($messege = false)
+    public function apiSuccess($message = false)
     {
         Yii::$app->response->statusCode = 200;
         return [
             'statusCode' => 200,
-            'message' => $messege ? $messege : 'Success',
+            'message' => $message ? $message : 'Success',
         ];
     }
 }

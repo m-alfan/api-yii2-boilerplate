@@ -11,6 +11,7 @@ use yii\web\IdentityInterface;
  * User model
  *
  * @property integer $id
+ * @property string $name
  * @property string $username
  * @property string $password_hash
  * @property string $password_reset_token
@@ -72,7 +73,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function fields()
     {
-        return ['username', 'email', 'token', 'updated_at', 'created_at'];
+        return ['name', 'username', 'email', 'token', 'updated_at', 'created_at'];
     }
 
     /**
@@ -84,7 +85,7 @@ class User extends ActiveRecord implements IdentityInterface
     public static function findByUsername($username)
     {
         return static::find()
-            ->select('id, username, email, password_hash, auth_key, created_at, updated_at')
+            ->select('id, name, username, email, password_hash, auth_key, created_at, updated_at')
             ->where(['status' => self::STATUS_ACTIVE])
             ->andWhere(['OR', ['username' => $username], ['email' => $username]])
             ->one();
@@ -129,6 +130,20 @@ class User extends ActiveRecord implements IdentityInterface
     public function afterFind()
     {
         parent::afterFind();
+        $this->token = $this->getJWT();
+
+        /* change format date */
+        $parse = Yii::$app->formatter;
+        $this->created_at = $parse->asDate($this->created_at, 'php:Y-m-d H:i:s');
+        $this->updated_at = $parse->asDate($this->updated_at, 'php:Y-m-d H:i:s');
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function afterSave($insert, $changedAttributes)
+    {
+        parent::afterSave($insert, $changedAttributes);
         $this->token = $this->getJWT();
 
         /* change format date */

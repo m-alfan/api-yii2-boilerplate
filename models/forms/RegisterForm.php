@@ -9,11 +9,17 @@ use app\models\User;
  * @SWG\Definition(
  *   definition="NewUser",
  *   type="object",
- *   required={"username", "email","password"}
+ *   required={"name", "username", "email", "password"}
  * )
  */
 class RegisterForm extends Model
 {
+    /**
+     * @SWG\Property();
+     * @var string
+     */
+    public $name;
+
     /**
      * @SWG\Property();
      * @var string
@@ -38,6 +44,8 @@ class RegisterForm extends Model
     public function rules()
     {
         return [
+            ['name', 'required'],
+            ['name', 'string', 'max' => 100],
             ['username', 'trim'],
             ['username', 'required'],
             ['username', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This username has already been taken.'],
@@ -65,6 +73,7 @@ class RegisterForm extends Model
 
         $user = new User();
         $user->username = $this->username;
+        $user->name = $this->name;
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();

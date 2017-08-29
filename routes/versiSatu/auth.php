@@ -8,8 +8,13 @@ return [
      *   tags={"Auth"},
      *   @SWG\Response(
      *     response=200,
-     *     description="Detail User",
-     *     @SWG\Schema(ref="#/definitions/About")
+     *     description="Data user",
+     *     @SWG\Schema(ref="#/definitions/CurrentUser")
+     *   ),
+     *   @SWG\Response(
+     *     response=401,
+     *     description="Unauthorized",
+     *     @SWG\Schema(ref="#/definitions/Unauthorized")
      *   )
      * )
      */

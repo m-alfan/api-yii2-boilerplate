@@ -33,6 +33,7 @@ class GuestController extends Controller
      * @SWG\Definition(
      *   definition="About",
      *   type="object",
+     *   required={"name", "description", "version", "baseUrl"},
      *   allOf={
      *     @SWG\Schema(
      *       @SWG\Property(property="name", type="string", description="Name App"),

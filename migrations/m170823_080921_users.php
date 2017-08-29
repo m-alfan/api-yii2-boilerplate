@@ -13,6 +13,7 @@ class m170823_080921_users extends Migration
         }
         $this->createTable('{{%users}}', [
             'id' => $this->primaryKey(),
+            'name' => $this->string(100)->notNull(),
             'username' => $this->string()->notNull()->unique(),
             'auth_key' => $this->string(32)->notNull(),
             'password_hash' => $this->string()->notNull(),

@@ -4,7 +4,7 @@ return [
     /**
      * @SWG\Get(
      *   path="/v1/about",
-     *   summary="About",
+     *   summary="About app",
      *   tags={"Guest"},
      *   @SWG\Response(
      *     response=200,
@@ -18,7 +18,7 @@ return [
     /**
      * @SWG\Post(
      *     path="/v1/login",
-     *     summary="Login",
+     *     summary="Login to the application",
      *     tags={"Guest"},
      *     description="Login to app for get Token access",
      *     @SWG\Parameter(
@@ -37,7 +37,13 @@ return [
      *     ),
      *     @SWG\Response(
      *         response=200,
-     *         description="pet response",
+     *         description="data user",
+     *         @SWG\Schema(ref="#/definitions/LoginForm")
+     *     ),
+     *     @SWG\Response(
+     *         response=422,
+     *         description="ValidateErrorException",
+     *         @SWG\Schema(ref="#/definitions/ErrorValidate")
      *     )
      * )
      */
@@ -46,9 +52,9 @@ return [
     /**
      * @SWG\Post(
      *     path="/v1/register",
-     *     summary="Register",
+     *     summary="Register new user",
      *     tags={"Guest"},
-     *     description="Register user",
+     *     description="Register new user",
      *     @SWG\Parameter(
      *         name="body",
      *         in="body",
@@ -58,7 +64,13 @@ return [
      *     ),
      *     @SWG\Response(
      *         response=200,
-     *         description="pet response",
+     *         description="Data user",
+     *         @SWG\Schema(ref="#/definitions/LoginForm")
+     *     ),
+     *     @SWG\Response(
+     *         response=422,
+     *         description="ValidateErrorException",
+     *         @SWG\Schema(ref="#/definitions/ErrorValidate")
      *     )
      * )
      */

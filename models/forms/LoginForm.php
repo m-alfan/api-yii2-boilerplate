@@ -9,8 +9,22 @@ use app\models\User;
 /**
  * @SWG\Definition(
  *   definition="LoginForm",
- *   type="formData",
- *   required={"username", "password"}
+ *   type="object",
+ *   required={"username", "email", "token", "updated_at", "created_at"},
+ *   @SWG\Property(property="name", type="string"),
+ *   @SWG\Property(property="token", type="string"),
+ *   @SWG\Property(property="email", type="string"),
+ *   @SWG\Property(property="updated_at", type="string"),
+ *   @SWG\Property(property="created_at", type="string")
+ * )
+ *
+ * @SWG\Definition(
+ *   definition="CurrentUser",
+ *   type="object",
+ *   required={"username", "email", "token", "updated_at", "created_at"},
+ *   allOf={
+ *     @SWG\Schema(ref="#/definitions/LoginForm")
+ *   }
  * )
  */
 class LoginForm extends Model
@@ -22,7 +36,6 @@ class LoginForm extends Model
     public $username;
 
     /**
-     * @SWG\Property();
      * @var string
      */
     public $password;

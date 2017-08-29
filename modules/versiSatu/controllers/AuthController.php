@@ -10,6 +10,9 @@ class AuthController extends Controller
     public function actionMe()
     {
         $user = Yii::$app->user->identity;
-        return $user;
+        /* remove token */
+        unset($user['token']);
+
+        return $this->apiItem($user);
     }
 }
