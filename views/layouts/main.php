@@ -1,49 +1,29 @@
+<?php
+    /* @var $this \yii\web\View */
+    /* @var $content string */
+    use yii\helpers\Html;
+    use app\assets\AppAsset;
+    use yii\helpers\Url;
+
+    AppAsset::register($this);
+?>
+
+<?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html>
+<html lang="<?= Yii::$app->language ?>">
 <head>
-    <title>Api document</title>
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="<?=Url::to('@web/favicon.ico')?>">
+    <?= Html::csrfMetaTags() ?>
+    <title><?= Html::encode($this->title) ?></title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <?php $this->head() ?>
     <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <!--style type="text/css"></style-->
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-    <link href='swagger/css/index.css' rel="stylesheet"/>
-    <link href='swagger/css/standalone.css' rel='stylesheet'/>
-    <link href='swagger/css/api-explorer.css' rel='stylesheet' type='text/css'/>
-    <link href='swagger/css/api2-explorer.css' rel='stylesheet' type='text/css'/>
-    <link href='swagger/css/core.min.css' media='screen' rel='stylesheet' type='text/css'/>
-    <link href='swagger/css/components.min.css' media='screen' rel='stylesheet' type='text/css'/>
-    <link href='swagger/css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
-
-    <script src='swagger/lib/jquery-1.8.0.min.js' type='text/javascript'></script>
-    <script src='swagger/lib/jquery.slideto.min.js' type='text/javascript'></script>
-    <script src='swagger/lib/jquery.wiggle.min.js' type='text/javascript'></script>
-    <script src='swagger/lib/jquery.ba-bbq.min.js' type='text/javascript'></script>
-    <script src='swagger/lib/handlebars-2.0.0.js' type='text/javascript'></script>
-    <script src='swagger/lib/underscore-min.js' type='text/javascript'></script>
-    <script src='swagger/lib/backbone-min.js' type='text/javascript'></script>
-    <script src='swagger/swagger-ui.min.js' type='text/javascript'></script>
-    <script src='swagger/lib/jsoneditor.js' type='text/javascript'></script>
-    <script src='swagger/lib/highlight.7.3.pack.js' type='text/javascript'></script>
-    <script src='swagger/lib/marked.js' type='text/javascript'></script>
-    <script src='swagger/lib/swagger-oauth.js' type='text/javascript'></script>
-    <script src='swagger/lib/bootstrap.min.js' type='text/javascript'></script>
-
-    <link rel="stylesheet" href="swagger/plugins/codemirror/lib/codemirror.css">
-    <link rel="stylesheet" href="swagger/plugins/codemirror/addon/lint/lint.css">
-    <link rel="stylesheet" href="swagger/plugins/codemirror/theme/eclipse.css">
-    <script src="swagger/plugins/codemirror/lib/codemirror.js"></script>
-    <script src="swagger/plugins/codemirror/mode/javascript/javascript.js"></script>
-    <script src="swagger/plugins/codemirror/addon/lint/lint.js"></script>
-    <script src="swagger/plugins/codemirror/addon/lint/jsonlint.js"></script>
-    <script src="swagger/plugins/codemirror/addon/lint/json-lint.js"></script>
-    <script src="swagger/plugins/codemirror/addon/display/autorefresh.js"></script>
-    <script src="swagger/plugins/codemirror/addon/edit/closebrackets.js"></script>
-    <script src="swagger/plugins/codemirror/addon/edit/matchbrackets.js"></script>
-    <script src="swagger/plugins/codemirror/addon/edit/trailingspace.js"></script>
-    <script src="swagger/plugins/codemirror/addon/edit/continuelist.js"></script>
     <style type="text/css">
         .CodeMirror {
             border: 1px solid #eee;
@@ -287,30 +267,32 @@
         $(function () {
             $("[data-toggle='tooltip']").tooltip();
         });
-    </script>
-
+    </script
 </head>
 
 <body class="page-docs" style="zoom: 1;">
-<header class="site-header">
-    <nav role="navigation" class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle"><span
-                        class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
-                        class="icon-bar"></span><span class="icon-bar"></span></button>
-                <h1 class="navbar-brand"><a href="{{ 'swaggerUI' | route() }}"><span>Api document</span></a></h1>
+    <?php $this->beginBody() ?>
+    <header class="site-header">
+        <nav role="navigation" class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle"><span
+                            class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                            class="icon-bar"></span><span class="icon-bar"></span></button>
+                    <h1 class="navbar-brand"><a href="{{ 'swaggerUI' | route() }}"><span>Api document</span></a></h1>
+                </div>
+                <div id="navbar-collapse" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="li-why"><a href="{{ 'swaggerUI' | route() }}" style="font-size: 25px; padding-left: 0px">Api document</a></li>
+                    </ul>
+                </div>
             </div>
-            <div id="navbar-collapse" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-left">
-                    <li class="li-why"><a href="{{ 'swaggerUI' | route() }}" style="font-size: 25px; padding-left: 0px">Api document</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 
-<?= $content?>
+    <?= $content?>
 
+    <?php $this->endBody() ?>
 </body>
 </html>
+<?php $this->endPage() ?>

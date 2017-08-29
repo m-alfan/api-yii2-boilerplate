@@ -1,3 +1,6 @@
+<?php
+$this->title = "Api document";
+?>
 <section class="content">
     <div id="api2-explorer">
         <div class="swagger-section page-docs" style="zoom: 1">
