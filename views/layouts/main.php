@@ -279,11 +279,11 @@
                     <button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle"><span
                             class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                             class="icon-bar"></span><span class="icon-bar"></span></button>
-                    <h1 class="navbar-brand"><a href="{{ 'swaggerUI' | route() }}"><span>Api document</span></a></h1>
+                    <h1 class="navbar-brand"><a href="<?=Url::to(['/docs'])?>"><span>Api document</span></a></h1>
                 </div>
                 <div id="navbar-collapse" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="li-why"><a href="{{ 'swaggerUI' | route() }}" style="font-size: 25px; padding-left: 0px">Api document</a></li>
+                        <li class="li-why"><a href="<?=Url::to(['/docs'])?>" style="font-size: 25px; padding-left: 0px">Api document</a></li>
                     </ul>
                 </div>
             </div>
