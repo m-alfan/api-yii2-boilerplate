@@ -1,5 +1,16 @@
 <?php
 
+/**
+ * @SWG\Parameter(
+ *      description="ID of data",
+ *      format="int64",
+ *      in="path",
+ *      name="id",
+ *      required=true,
+ *      type="integer"
+ * )
+ */
+
 $versiSatu = "../routes/versiSatu";
 
 $routes = [];

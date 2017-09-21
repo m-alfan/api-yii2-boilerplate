@@ -12,6 +12,7 @@ use app\models\User;
  *   type="object",
  *   required={"username", "email", "token", "updated_at", "created_at"},
  *   @SWG\Property(property="name", type="string"),
+ *   @SWG\Property(property="username", type="string"),
  *   @SWG\Property(property="token", type="string"),
  *   @SWG\Property(property="email", type="string"),
  *   @SWG\Property(property="updated_at", type="string"),

@@ -24,6 +24,17 @@
  *       @SWG\Property(property="name", type="string", description="Errors name"),
  *     )
  * )
+ *
+ * @SWG\Definition(
+ *     definition="Not Found",
+ *     required={"statusCode", "message", "name"},
+ *     type="object",
+ *     @SWG\Schema(
+ *       @SWG\Property(property="statusCode", type="string", description="Name App"),
+ *       @SWG\Property(property="message", type="string", description="Errors message"),
+ *       @SWG\Property(property="name", type="string", description="Errors name"),
+ *     )
+ * )
  */
 
 return [
