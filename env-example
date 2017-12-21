@@ -1,0 +1,7 @@
+API_HOST=localhost:8888/api-yii2-boilerplate/web
+APP_ENV=development
+
+MYSQL_HOST=localhost
+MYSQL_DATABASE=
+MYSQL_USER=
+MYSQL_PASSWORD=
