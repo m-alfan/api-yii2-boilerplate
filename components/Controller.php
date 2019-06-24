@@ -104,7 +104,7 @@ class Controller extends \yii\rest\Controller
             'statusCode' => 200,
             'message' => $message ? $message : 'Data retrieval successfully',
             'data' => $data,
-            'total' => 0
+            'total' => $total
         ];
     }
 

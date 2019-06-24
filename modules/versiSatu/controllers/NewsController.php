@@ -5,17 +5,21 @@ namespace app\modules\versiSatu\controllers;
 use app\components\Controller;
 use app\models\News;
 use yii\web\NotFoundHttpException;
+use app\models\search\NewsSearch;
 use Yii;
 
 class NewsController extends Controller
 {
     public function actionIndex()
     {
-        $news = News::find()
-            ->orderBy('id')
-            ->all();
+        $search['NewsSearch'] = Yii::$app->request->queryParams;
+        $searchModel  = new NewsSearch();
+        $dataProvider = $searchModel->search($search);
 
-        return $this->apiCollection($news);
+        return $this->apiCollection([
+            'count'      => $dataProvider->count,
+            'dataModels' => $dataProvider->models,
+        ], $dataProvider->totalCount);
     }
 
     public function actionCreate()
