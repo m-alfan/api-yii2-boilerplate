@@ -22,7 +22,6 @@ class NewsController extends Controller
     {
         $dataRequest['News'] = Yii::$app->request->getBodyParams();
         $model = new News();
-        throw new NotFoundHttpException('Resource not found');
         if($model->load($dataRequest) && $model->save()) {
             return $this->apiCreated($model);
         }
